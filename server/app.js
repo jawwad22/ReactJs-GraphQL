@@ -1,16 +1,22 @@
-const express=require('express')
-const graphqlHTTP=require("express-graphql");
-const schema=require('./schema/scehema')
+const express = require('express')
+const graphqlHTTP = require("express-graphql");
+const schema = require('./schema/scehema')
+const mongoose = require('mongoose');
 
 
-const app=express();
+const app = express();
+mongoose.connect('mongodb+srv://jawwad:123@gql-jawwad-sbmgm.mongodb.net/test',{ useNewUrlParser: true })
+mongoose.connection.once('open', () => {
+    console.log('Connected to server')
+})
 
-app.use('/graphql',graphqlHTTP({
+
+app.use('/graphql', graphqlHTTP({
     schema,
-    graphiql:true
+    graphiql: true
 
 }))
 
-app.listen(4000,()=>{
+app.listen(4000, () => {
     console.log('Now listening for request 4000')
 })
