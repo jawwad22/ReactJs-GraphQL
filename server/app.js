@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 
 const app = express();
-mongoose.connect('mongodb+srv://jawwad:123@gql-jawwad-sbmgm.mongodb.net/test',{ useNewUrlParser: true })
+mongoose.connect('mongodb+srv://jawwad22:123@graphqldb-dfe2g.mongodb.net/test?retryWrites=true&w=majority',{ useNewUrlParser: true })
 mongoose.connection.once('open', () => {
     console.log('Connected to server')
 })
